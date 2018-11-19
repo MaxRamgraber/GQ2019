@@ -14,12 +14,13 @@
       <a-assets> 
         <video id="video" autoplay loop="false" src="https://maxramgraber.github.io/AGU-MPS/MPS_example.mp4"></video> 
       </a-assets>  	
-      <a-marker type='barcode' value='6'>
+      <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" id="animated-marker" type='barcode' value='6'>
             <a-box position='0 0.5 0' color="red"></a-box>
             <a-entity rotation="-90 0 0" scale="0.7 0.7 0.7">
               <a-video src="#video" width="3.5" height="2" position="0.5 0 -2" play-on-window-click></a-video>
             </a-entity>
       </a-marker>
+
       
       <a-entity camera>
         <a-entity cursor="fuse: true; fuseTimeout: 50"

@@ -12,6 +12,7 @@
 	<script src="threex/threex-artoolkitcontext.js"></script>
 	<script src="threex/threex-arbasecontrols.js"></script>
 	<script src="threex/threex-armarkercontrols.js"></script>
+	<script src="threex/threex-arsmoothedcontrols.js"></script>
 </head>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
@@ -30,7 +31,7 @@
 
 <script>
 var scene, camera, renderer, clock, deltaTime, totalTime;
-var arToolkitSource, arToolkitContext;
+var arToolkitSource, arToolkitContext; smoothedControls;
 var markerRoot1;
 var mesh1;
 initialize();
@@ -103,6 +104,17 @@ function initialize()
 	let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
 		type: 'pattern', patternUrl: "data/hiro.patt",
 	})
+	// interpolates from last position to create smoother transitions when moving.
+	// parameter lerp values near 0 are slow, near 1 are fast (instantaneous).
+	let smoothedRoot = new THREE.Group();
+	scene.add(smoothedRoot);
+	smoothedControls = new THREEx.ArSmoothedControls(smoothedRoot, {
+		lerpPosition: 0.8,
+		lerpQuaternion: 0.8,
+		lerpScale: 1,
+		// minVisibleDelay: 1,
+		// minUnvisibleDelay: 1,
+	});
 	let geometry1 = new THREE.PlaneBufferGeometry(4,2, 8,4);
 	let video = document.getElementById( 'video' );
 	let texture = new THREE.VideoTexture( video );
@@ -114,7 +126,8 @@ function initialize()
 	mesh1 = new THREE.Mesh( geometry1, material1 );
 	mesh1.rotation.x = -Math.PI/2;
 	
-	markerRoot1.add( mesh1 );
+	//markerRoot1.add( mesh1 );
+	smoothedRoot.add( mesh1 );
 }
 function update()
 {

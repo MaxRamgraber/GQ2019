@@ -110,8 +110,9 @@ function initialize()
 	scene.add(smoothedRoot);
 	smoothedControls = new THREEx.ArSmoothedControls(smoothedRoot, {
 		lerpPosition: 0.4,
-		lerpQuaternion: 0.4,
-		lerpScale: 1,
+		lerpQuaternion: 0.2,
+		lerpScale: 0.6,
+		lerpStepDelay: 30/60,
 		// minVisibleDelay: 1,
 		// minUnvisibleDelay: 1,
 	});

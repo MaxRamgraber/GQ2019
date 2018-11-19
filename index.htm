@@ -8,6 +8,19 @@
 <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/events.js"></script>
+<script type="text/javascript"> 
+   AFRAME.registerComponent("listener", {
+	schema : 
+	{
+		stepFactor : {
+			type : "number",
+			default : 0.05
+		}
+	},
+   tick: function() {
+	  document.querySelector("a-camera").components.camera.camera.parent.position.add(document.querySelector("a-camera").components.camera.camera.getWorldDirection().multiplyScalar(this.data.stepFactor));
+	  }
+</script>
  	
   <body style='margin : 0px; overflow: hidden;'>
    
@@ -21,7 +34,7 @@
             </a-entity>
       </a-marker>
       
-      <a-entity camera>
+      <a-entity camera listener="stepFactor:1">
         <a-entity cursor="fuse: true; fuseTimeout: 50"
             position="0 0 -1">
         </a-entity>

@@ -134,6 +134,9 @@ function update()
 	// update artoolkit on every frame
 	if ( arToolkitSource.ready !== false )
 		arToolkitContext.update( arToolkitSource.domElement );
+	
+	// additional code for smoothed controls
+	smoothedControls.update(markerRoot1);
 }
 function render()
 {

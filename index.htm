@@ -109,15 +109,15 @@ function initialize()
 	})
 	// interpolates from last position to create smoother transitions when moving.
 	// parameter lerp values near 0 are slow, near 1 are fast (instantaneous).
-	let smoothedRoot = new THREE.Group();
-	scene.add(smoothedRoot);
-	smoothedControls = new THREEx.ArSmoothedControls(smoothedRoot, {
-		lerpPosition: 0.4,
-		lerpQuaternion: 0.1,
-		lerpScale: 0.8,
-		// minVisibleDelay: 1,
-		// minUnvisibleDelay: 1,
-	});
+	//let smoothedRoot = new THREE.Group();
+	//scene.add(smoothedRoot);
+	//smoothedControls = new THREEx.ArSmoothedControls(smoothedRoot, {
+	//	lerpPosition: 0.4,
+	//	lerpQuaternion: 0.1,
+	//	lerpScale: 0.8,
+	//	// minVisibleDelay: 1,
+	//	// minUnvisibleDelay: 1,
+	//});
 	let geometry1 = new THREE.PlaneBufferGeometry(4,2, 8,4);
 	let video1 = document.getElementById( 'video1' );
 	let texture1 = new THREE.VideoTexture( video1 );
@@ -136,8 +136,8 @@ function initialize()
 	mesh1.scale.y = 1.2; // this wasnt here before, -Max-
 	mesh1.scale.z = 1.2; // this wasnt here before, -Max-
 	
-	//markerRoot1.add( mesh1 );
-	smoothedRoot.add( mesh1 );
+	markerRoot1.add( mesh1 );
+	//smoothedRoot.add( mesh1 );
 	
 	
 	
@@ -162,8 +162,8 @@ function initialize()
 	mesh2.scale.y = 0.8; // this wasnt here before, -Max-
 	mesh2.scale.z = 0.8; // this wasnt here before, -Max-
 	
-	//markerRoot1.add( mesh1 );
-	smoothedRoot.add( mesh2 );
+	/arkerRoot2.add( mesh2 );
+	//smoothedRoot.add( mesh2 );
 	
 	
 }
@@ -174,8 +174,8 @@ function update()
 		arToolkitContext.update( arToolkitSource.domElement );
 	
 	// additional code for smoothed controls
-	smoothedControls.update(markerRoot1);
-	smoothedControls.update(markerRoot2);
+	//smoothedControls.update(markerRoot1);
+	//smoothedControls.update(markerRoot2);
 }
 function render()
 {

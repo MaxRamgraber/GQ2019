@@ -147,17 +147,6 @@ function initialize()
 	let markerControls2 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot2, {
 		type: 'pattern', patternUrl: "data/marker_quad_spiral.patt", //hiro
 	})
-	// interpolates from last position to create smoother transitions when moving.
-	// parameter lerp values near 0 are slow, near 1 are fast (instantaneous).
-	let smoothedRoot = new THREE.Group();
-	scene.add(smoothedRoot);
-	smoothedControls = new THREEx.ArSmoothedControls(smoothedRoot, {
-		lerpPosition: 0.4,
-		lerpQuaternion: 0.1,
-		lerpScale: 0.8,
-		// minVisibleDelay: 1,
-		// minUnvisibleDelay: 1,
-	});
 	let geometry2 = new THREE.PlaneBufferGeometry(4,2, 8,4);
 	let video2 = document.getElementById( 'video2' );
 	let texture2 = new THREE.VideoTexture( video2 );

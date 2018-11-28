@@ -187,6 +187,8 @@ ARjs.MarkerControls.prototype._initArtoolkit = function(){
 		// check if arController is init
 		var arController = _this.context.arController
 		console.assert(arController !== null )
+		
+		arController.setPattRatio(0.7);
 
 		// start tracking this pattern
 		if( _this.parameters.type === 'pattern' ){

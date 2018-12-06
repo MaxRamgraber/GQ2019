@@ -193,7 +193,9 @@ function update()
 	if (markerRoot1.visible == true) { //mesh1.object3D.visible
 		
 		smoothedControls1.update(markerRoot1);
-		video1.play();
+		if (video1.paused == true) {
+			video1.play();
+		}
 		//video1.play();
 		//document.getElementById('#video1').play();
 

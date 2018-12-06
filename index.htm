@@ -207,9 +207,15 @@ function render()
 }
 function animate()
 {
-	requestAnimationFrame(animate);
-	deltaTime = clock.getDelta();
-	totalTime += deltaTime;
+	//requestAnimationFrame(animate);
+	//deltaTime = clock.getDelta();
+	//totalTime += deltaTime;
+	
+	setTimeout( function() {
+		requestAnimationFrame( animate );
+		deltaTime = clock.getDelta();
+		totalTime += deltaTime;
+	}, 1000 / 30 );
 	
 	update();
 	render();

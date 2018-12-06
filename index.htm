@@ -205,11 +205,21 @@ function update()
 		
 		smoothedControls2.update(markerRoot2);
 		mesh2.visible = false;
+		mesh2.traverse ( function (child) {
+			if (child instanceof THREE.Mesh) {
+				child.visible = false;
+			}
+		});
+		
 		//video2.play();
 		//document.getElementById('#video2').play();
 
 	}else {
-		mesh2.visible = true;
+		mesh2.traverse ( function (child) {
+			if (child instanceof THREE.Mesh) {
+				child.visible = true;
+			}
+		});
 		//video2.pause();
 		//document.getElementById('#video2').pause();
 		

@@ -182,8 +182,35 @@ function update()
 		arToolkitContext.update( arToolkitSource.domElement );
 	
 	// additional code for smoothed controls
-	smoothedControls1.update(markerRoot1);
+	// smoothedControls1.update(markerRoot1);
 	//smoothedControls2.update(markerRoot2);
+
+        if (mesh1.object3D.visible == true && playing == false) {
+      // MARKER IS PRESENT
+      //alert("MARKER IS PRESENT")
+		
+	   smoothedControls1.update(markerRoot1);
+
+           scene = document.querySelector('#a-scene');
+  	   AR-Object01 = document.querySelector('#Object01');
+    	   AR-Object02 = document.querySelector('#Object02');
+           AR-VideoScreen =  document.querySelector('#videoScreen');
+
+           AR-Object01.addEventListener('click', function () { console.log("object01 clickable in AR") });
+           AR-Object02.addEventListener('click', function () { console.log("object02 clickable in AR") });
+           videoScreen.addEventListener('click', function () { playPauseVideo(); console.log("Video Play Toggle") });
+           playing = true;
+
+         }else {
+           // MARKER IS HIDDEN, do nothing (up to you)
+         }
+	
+}
+function playPauseVideo(){
+	if (video.paused)
+	    video.play();
+	  else
+	    video.pause();
 }
 function render()
 {

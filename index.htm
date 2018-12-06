@@ -186,12 +186,19 @@ function update()
 		arToolkitContext.update( arToolkitSource.domElement );
 	
 	// additional code for smoothed controls
-	smoothedControls1.update(markerRoot1);
-	smoothedControls2.update(markerRoot2);
+	//smoothedControls1.update(markerRoot1);
+	//smoothedControls2.update(markerRoot2);
 	
 	if (markerRoot1.visible == true) { //mesh1.object3D.visible
 		
 		smoothedControls1.update(markerRoot1);
+
+	}else {
+		// MARKER IS HIDDEN, do nothing (up to you)
+	}
+	if (markerRoot2.visible == true) { //mesh1.object3D.visible
+		
+		smoothedControls2.update(markerRoot2);
 
 	}else {
 		// MARKER IS HIDDEN, do nothing (up to you)

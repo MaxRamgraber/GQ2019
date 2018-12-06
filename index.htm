@@ -104,6 +104,7 @@ function initialize()
 	let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
 		type: 'pattern', patternUrl: "data/marker_tri_spiral.patt", id="Marker1"//hiro
 	})
+	
 	// interpolates from last position to create smoother transitions when moving.
 	// parameter lerp values near 0 are slow, near 1 are fast (instantaneous).
 	let smoothedRoot1 = new THREE.Group();
@@ -184,10 +185,8 @@ function update()
 	// additional code for smoothed controls
 	// smoothedControls1.update(markerRoot1);
 	//smoothedControls2.update(markerRoot2);
-
-        if (document.querySelector("#Marker1").object3D.visible == true) { //mesh1.object3D.visible
-      // MARKER IS PRESENT
-      //alert("MARKER IS PRESENT")
+	
+        if (markerControls1.markerFound == true) { //mesh1.object3D.visible
 		
 	   smoothedControls1.update(markerRoot1);
 

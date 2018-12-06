@@ -204,7 +204,6 @@ function update()
 	if (markerRoot2.visible == true) { //mesh1.object3D.visible
 		
 		smoothedControls2.update(markerRoot2);
-		mesh2.visible = false;
 		mesh2.traverse ( function (child) {
 			if (child instanceof THREE.Mesh) {
 				child.visible = true;

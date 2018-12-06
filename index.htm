@@ -207,7 +207,7 @@ function update()
 		mesh2.visible = false;
 		mesh2.traverse ( function (child) {
 			if (child instanceof THREE.Mesh) {
-				child.visible = false;
+				child.visible = true;
 			}
 		});
 		
@@ -217,7 +217,7 @@ function update()
 	}else {
 		mesh2.traverse ( function (child) {
 			if (child instanceof THREE.Mesh) {
-				child.visible = true;
+				child.visible = false;
 			}
 		});
 		//video2.pause();

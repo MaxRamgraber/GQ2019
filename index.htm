@@ -193,10 +193,20 @@ function update()
 	if (markerRoot1.visible == true) { //mesh1.object3D.visible
 		
 		smoothedControls1.update(markerRoot1);
+		mesh1.traverse ( function (child) {
+			if (child instanceof THREE.Mesh) {
+				child.visible = false;
+			}
+		});
 		//video1.play();
 		//document.getElementById('#video1').play();
 
 	}else {
+		mesh1.traverse ( function (child) {
+			if (child instanceof THREE.Mesh) {
+				child.visible = false;
+			}
+		});
 		//document.getElementById('#video1').pause();
 		
 		// MARKER IS HIDDEN, do nothing (up to you)

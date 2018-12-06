@@ -38,7 +38,7 @@ var scene, camera, renderer, clock, deltaTime, totalTime;
 var arToolkitSource, arToolkitContext, smoothedControls1, smoothedControls2;
 var markerRoot1, markerRoot2;
 var mesh1, mesh2;
-var video1, video2;
+var texture1, texture2;
 initialize();
 animate();
 function initialize()
@@ -193,14 +193,14 @@ function update()
 	if (markerRoot1.visible == true) { //mesh1.object3D.visible
 		
 		smoothedControls1.update(markerRoot1);
-		if (video1.paused == true)
-			video1.play()
+		if (texture1.video.paused == true)
+			texture1.video.play()
 		//video1.play();
 		//document.getElementById('#video1').play();
 
 	}else {
 		
-		video1.pause();
+		texture1.video.pause();
 		//document.getElementById('#video1').pause();
 		
 		// MARKER IS HIDDEN, do nothing (up to you)

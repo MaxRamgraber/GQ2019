@@ -193,14 +193,11 @@ function update()
 	if (markerRoot1.visible == true) { //mesh1.object3D.visible
 		
 		smoothedControls1.update(markerRoot1);
-		if (video1.paused == true) {
-			video1.play();
-		}
 		//video1.play();
 		//document.getElementById('#video1').play();
 
 	}else {
-		video1.pause();
+		//video1.pause();
 		//document.getElementById('#video1').pause();
 		
 		// MARKER IS HIDDEN, do nothing (up to you)
@@ -228,6 +225,7 @@ function animate()
 	requestAnimationFrame(animate);
 	deltaTime = clock.getDelta();
 	totalTime += deltaTime;
+	
 	update();
 	render();
 }

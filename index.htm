@@ -194,6 +194,9 @@ function update()
 		smoothedControls1.update(markerRoot1);
 
 	}else {
+		
+		document.getElementById('video1').pause();
+		
 		// MARKER IS HIDDEN, do nothing (up to you)
 	}
 	if (markerRoot2.visible == true) { //mesh1.object3D.visible
@@ -201,6 +204,9 @@ function update()
 		smoothedControls2.update(markerRoot2);
 
 	}else {
+		
+		document.getElementById('video2').pause();
+		
 		// MARKER IS HIDDEN, do nothing (up to you)
 	}
 }

@@ -195,7 +195,7 @@ function update()
 		smoothedControls1.update(markerRoot1);
 		mesh1.traverse ( function (child) {
 			if (child instanceof THREE.Mesh) {
-				child.visible = false;
+				child.visible = true;
 			}
 		});
 		//video1.play();
